@@ -1,6 +1,6 @@
 package com.example.demo.controller
 
-import com.example.demo.DemoKotlinApplication
+import com.example.demo.Application
 import org.assertj.core.api.Assertions.assertThat
 import org.junit.Test
 import org.junit.runner.RunWith
@@ -13,7 +13,7 @@ import org.springframework.test.context.junit4.SpringRunner
 import java.nio.charset.Charset
 
 @RunWith(SpringRunner::class)
-@SpringBootTest(classes = [DemoKotlinApplication::class],
+@SpringBootTest(classes = [Application::class],
         webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 class HelloControllerIntegrationTests {
 

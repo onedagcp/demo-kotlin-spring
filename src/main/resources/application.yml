@@ -1,7 +1,7 @@
 # SPRING CORE
 spring:
   application:
-    name: kotlin with spring-boot 1.5.10
+    name: kotlin with spring-boot 1.5
 # OUTPUT
   output:
     ansi:
@@ -66,4 +66,4 @@ logging:
 #    org.hibernate.event.internal: DEBUG
 #    org.hibernate.engine.transaction.internal: DEBUG
 #    org.hibernate.internal.util: DEBUG
-    com.example.demokotlin: DEBUG
+    com.example.demo: DEBUG
