@@ -1,7 +1,7 @@
 buildscript {
     ext {
-        kotlinVersion = "1.2.30"
-        springBootVersion = "1.5.11.RELEASE"
+        kotlinVersion = "1.2.31"
+        springBootVersion = "1.5.13.RELEASE"
     }
     repositories {
         mavenCentral()
@@ -24,7 +24,7 @@ apply plugin: "org.springframework.boot"
 apply plugin: 'kotlin-kapt'
 
 group = "com.example"
-version = "0.0.2-SNAPSHOT"
+version = "0.0.3-SNAPSHOT"
 sourceCompatibility = 1.8
 targetCompatibility = 1.8
 compileKotlin {
@@ -68,11 +68,16 @@ dependencies {
     testCompile("com.h2database:h2")
 }
 
+jar {
+    // baseName = 'demo'
+    archiveName = 'demo.jar'
+}
+
 springBoot {
     buildInfo()
 }
 
 bootRun {
     jvmArgs += ["-Dspring.profiles.active=dev"]
-    //args += ["-F", "-X"]
+    // args += ["-F", "-X"]
 }
