@@ -5,6 +5,7 @@ Development environment
 * Java 1.8.0
 * Kotlin 1.2.31
 * Spring Boot 1.5.13
+* MySQL CE 5.7.19
 * Gradle 3.5.1
 
 ## compile
