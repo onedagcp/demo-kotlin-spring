@@ -41,9 +41,9 @@ spring:
         generate_statistics: false
   jackson:
     serialization:
-      indent_output: true
+      indent-output: true
       write-dates-as-timestamps: false
-      write_durations_as_timestamps: true
+      write-durations-as-timestamps: true
 
 # EMBEDDED SERVER CONFIGURATION
 server:
