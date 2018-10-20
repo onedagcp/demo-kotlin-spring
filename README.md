@@ -3,8 +3,8 @@
 Development environment
 
 * Java 1.8.0
-* Kotlin 1.2.41
-* Spring Boot 1.5.15
+* Kotlin 1.2.71
+* Spring Boot 1.5.17
 * MySQL CE 5.7.19
 * Gradle 3.5.1
 
@@ -70,6 +70,12 @@ new_memo.json
     "description": "new memo description",
     "done": false
 }
+```
+
+#### put
+
+```text
+curl -v -H "Content-Type:application/json" -d "{\"title\": \"update memo title\", \"description\": \"update memo description\", \"done\": false }" -X PUT "http://localhost:9000/app/memo/1"
 ```
 
 #### delete

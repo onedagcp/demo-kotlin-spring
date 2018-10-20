@@ -9,19 +9,26 @@ import org.springframework.transaction.annotation.Transactional
 
 @Service
 class MemoServiceImpl(
-    private val repository: MemoRepository): MemoService {
+        private val repository: MemoRepository) : MemoService {
 
     @Transactional(readOnly = true)
     override fun findById(id: Long): Memo? =
-        repository.findOne(id)
+            repository.findOne(id)
 
     @Transactional(readOnly = true)
     override fun findAll(page: Pageable): List<Memo> =
-        repository.findAll(page).content
+            repository.findAll(page).content
 
     @Transactional(timeout = 10)
     override fun store(memo: Memo) {
         repository.save(memo)
+    }
+
+    @Transactional(timeout = 10)
+    override fun updateById(id: Long, memo: Memo): Memo? {
+        val targetMemo = repository.findOne(id)
+        targetMemo?.let { it.merge(memo) }
+        return targetMemo
     }
 
     @Transactional(timeout = 10)

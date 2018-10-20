@@ -42,9 +42,9 @@ class MemoServiceImplTests {
     fun findAll() {
         val page = PageRequest(0, 5)
         val expected = listOf(
-                Memo(id = 1, title = "test title 1", description = "test description 1"),
-                Memo(id = 2, title = "test title 2", description = "test description 2"),
-                Memo(id = 3, title = "test title 3", description = "test description 3")
+                Memo(id = 1, title = "test title 1", description = "test description 1", done = true),
+                Memo(id = 2, title = "test title 2", description = "test description 2", done = true),
+                Memo(id = 3, title = "test title 3", description = "test description 3", done = true)
         )
         Mockito.`when`(repository.findAll(Mockito.eq(page))).thenReturn(PageImpl(expected, page, 3))
 

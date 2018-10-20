@@ -2,14 +2,14 @@
 spring:
   application:
     name: kotlin with spring-boot 1.5
-# OUTPUT
+  # OUTPUT
   output:
     ansi:
       enabled: detect
-# PROFILES
+  # PROFILES
   profiles:
     active: dev
-# DATASOURCE
+  # DATASOURCE
   datasource:
     url: jdbc:mysql://localhost:3306/demo_db?useSSL=false
     username: demo_user
@@ -30,7 +30,7 @@ spring:
       initial-size: 4
       max-idle: 4
       min-idle: 0
-# JPA
+  # JPA
   jpa:
     open-in-view: true
     properties:
@@ -55,14 +55,14 @@ logging:
   level:
     root: info
     org.springframework: info
-#    org.springframework.orm.jpa.JpaTransactionManager: debug
-#    org.springframework.transaction: trace
+    #    org.springframework.orm.jpa.JpaTransactionManager: debug
+    #    org.springframework.transaction: trace
     org.hibernate: info
     org.hibernate.SQL: debug
-#    org.hibernate.type.descriptor.sql.BasicBinder: trace
-#    org.hibernate.transaction: debug
-#    org.hibernate.jpa.internal: debug
-#    org.hibernate.event.internal: debug
-#    org.hibernate.engine.transaction.internal: debug
-#    org.hibernate.internal.util: debug
+    #    org.hibernate.type.descriptor.sql.BasicBinder: trace
+    #    org.hibernate.transaction: debug
+    #    org.hibernate.jpa.internal: debug
+    #    org.hibernate.event.internal: debug
+    #    org.hibernate.engine.transaction.internal: debug
+    #    org.hibernate.internal.util: debug
     com.example.demo: debug
