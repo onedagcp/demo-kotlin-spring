@@ -2,6 +2,7 @@ package com.example.demo.controller
 
 import com.example.demo.service.MemoService
 import org.slf4j.LoggerFactory
+import org.springframework.data.domain.Pageable
 import org.springframework.stereotype.Controller
 import org.springframework.ui.Model
 import org.springframework.web.bind.annotation.GetMapping
@@ -26,15 +27,18 @@ class GreetingController(private val service: MemoService) {
     @GetMapping("/hello2")
     fun hello2(
             @RequestParam(value = "id", required = false, defaultValue = "1") name: Long,
+            page: Pageable,
             model: Model): String {
 
         val id : Long = name.toLong()
         val memo = service.findById(id)
+        val memos = service.findAll(page)
 
         log.debug("store memo : {}", memo)
 
         model.addAttribute("name", name)
         model.addAttribute("memo", memo)
+        model.addAttribute("memos", memos)
         return "greeting"
     }
 
