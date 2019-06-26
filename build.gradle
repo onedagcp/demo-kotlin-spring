@@ -66,6 +66,8 @@ dependencies {
     // for test
     testCompile("org.springframework.boot:spring-boot-starter-test")
     testCompile("com.h2database:h2")
+    // for thymeleaf
+    compile("org.springframework.boot:spring-boot-starter-thymeleaf")
 }
 
 jar {

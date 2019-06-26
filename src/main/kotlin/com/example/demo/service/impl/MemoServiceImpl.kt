@@ -11,6 +11,9 @@ import org.springframework.transaction.annotation.Transactional
 class MemoServiceImpl(
         private val repository: MemoRepository) : MemoService {
 
+    override fun findById2(id: Long): Memo? =
+        repository.findOne(id)
+
     @Transactional(readOnly = true)
     override fun findById(id: Long): Memo? =
             repository.findOne(id)

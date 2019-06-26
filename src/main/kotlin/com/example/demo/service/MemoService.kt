@@ -5,6 +5,7 @@ import org.springframework.data.domain.Pageable
 
 interface MemoService {
     fun findById(id: Long): Memo?
+    fun findById2(id: Long): Memo?
     fun findAll(page: Pageable): List<Memo>
     fun store(memo: Memo)
     fun updateById(id: Long, memo: Memo): Memo?

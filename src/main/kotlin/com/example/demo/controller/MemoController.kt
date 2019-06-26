@@ -11,8 +11,7 @@ import org.springframework.web.bind.annotation.*
 
 @RestController
 @RequestMapping(path = ["memo"])
-class MemoController(
-        private val service: MemoService) {
+class MemoController(private val service: MemoService) {
 
     private val log = LoggerFactory.getLogger(MemoController::class.java)
 
@@ -28,8 +27,25 @@ class MemoController(
         }
     }
 
+    @GetMapping(path = ["2/{id}"], produces = [MediaType.APPLICATION_JSON_UTF8_VALUE])
+    fun id2(@PathVariable(value = "id") id: Long): ResponseEntity<Memo> {
+        val memo = service.findById2(id)
+        //memo?.let { return ResponseEntity.ok(memo) }
+        //   ?: run { return ResponseEntity(HttpStatus.NOT_FOUND) }
+        return if (memo != null) {
+            ResponseEntity.ok(memo)
+        } else {
+            ResponseEntity(HttpStatus.NOT_FOUND)
+        }
+    }
+
     @GetMapping(path = ["list"], produces = [MediaType.APPLICATION_JSON_UTF8_VALUE])
     fun list(page: Pageable): ResponseEntity<List<Memo>> {
+        return ResponseEntity.ok(service.findAll(page))
+    }
+
+    @GetMapping(path = ["list2"], produces = [MediaType.APPLICATION_JSON_UTF8_VALUE])
+    fun list2(page: Pageable): ResponseEntity<List<Memo>> {
         return ResponseEntity.ok(service.findAll(page))
     }
 
