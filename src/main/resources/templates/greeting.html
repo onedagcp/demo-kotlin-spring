@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8" http-equiv="Content-Type" content="text/html" />
     <title>Getting Started: Saving Web Content</title>
-    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+    <script src="https://unpkg.com/vue/dist/vue.js"></script>
+    <script src="https://unpkg.com/vue-router/dist/vue-router.js"></script>
 </head>
 <body>
 <p th:text="'Hello, ' + ${name} + '!'" />
@@ -23,6 +24,41 @@
     </tbody>
 </table>
 
+<div id="app">
+    <h1>Hello App!</h1>
+    <p>
+        <!-- ナビゲーションに router-link コンポーネントを使う -->
+        <!-- リンク先を `to` プロパティに指定します -->
+        <!-- デフォルトで `<router-link>` は `<a>` タグとして描画されます -->
+        <router-link to="/foo">Go to Foo</router-link>
+        <router-link to="/bar">Go to Bar</router-link>
+    </p>
+    <router-view></router-view>
+</div>
+
+<script>
+    // 1. ルートコンポーネントを定義します
+    const Foo = { template: '<div>foo</div>' }
+    const Bar = { template: '<div>bar</div>' }
+
+    // 2. ルートをいくつか定義します
+    // 各ルートは 1 つのコンポーネントとマッピングされる必要があります。
+    const routes = [
+        { path: '/foo', component: Foo },
+        { path: '/bar', component: Bar }
+    ]
+
+    // 3. ルーターインスタンスを作成して、ルートオプションを渡します
+    const router = new VueRouter({
+        routes // `routes: routes` の短縮表記
+    })
+
+    // 4. root となるインスタンスを作成してマウントします
+    const app = new Vue({
+        router
+    }).$mount('#app')
+
+</script>
 <script>
     var app1 = new Vue({
         el: '#app-1',                        /* #app-1 要素に対して Vue を適用する */
